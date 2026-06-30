@@ -1,153 +1,171 @@
-# Spec: hesusg.github.io — portfolio "Technical Plate" (Humphrey evidence)
+# Spec: hesusg.github.io — tri-faceted portfolio "Technical Plate" + lead magnets
 
-**Date:** 2026-06-29
+**Date:** 2026-06-29 (rev. 2 — scope expanded to 3 facets + mailing list)
 **Owner:** Hesus Garcia Cobos
-**Status:** Approved design (visual mockup validated in the brainstorming companion)
+**Status:** Approved design (visual mockup validated; structure + scope locked via grill-me)
 
 ## Context
 
-Hesus is applying to the Hubert H. Humphrey Fellowship (field: Technology Policy &
-Management). The application package (essays, artifacts, logistics) lives in the private
-repo `humphrey-fellowship`. The checklist calls for a public **portfolio landing page** to
-link from the application as evidence, gathering his open work in one credible place.
+Hesus is applying to the Humphrey Fellowship (Technology Policy & Management). The
+application package lives in the private repo `humphrey-fellowship`; the checklist calls
+for a public portfolio as evidence. During design we found his real work is **tri-faceted**:
+he is an **instructional designer**, a **developer/systems builder**, and a **policy
+researcher**. The portfolio doubles as his permanent personal site (the person, distinct
+from the AcademIA consultancy at academias.dev) and as a **lead-funnel** (free downloads in
+exchange for a mailing-list subscription).
 
-This portfolio doubles as his permanent personal/professional site (the person, distinct
-from the AcademIA consultancy at academias.dev). It must look like a precise, intellectually
-credible practitioner site, not a template. The visual system is forked from academias.dev
-("The Technical Plate") and pushed a bit further to the aesthetic extreme, drawing on two
-references the user chose: locomotive.ca (cascading hero text, minimal typographic nav) and
-iljavaneck.com (two-column project cards that "pass" as you move through them).
+Visual system: forked from academias.dev ("The Technical Plate") and pushed to the
+aesthetic extreme, drawing on locomotive.ca (cascading hero, minimal typographic nav) and
+iljavaneck.com (sticky two-column project cards). The hero's cascade — `Builder,` /
+`educator,` / `policy architect.` — literally announces the three facets.
 
-Deadline pressure: the Humphrey deadline is 2026-07-26, so the build favors a fast,
-no-build static site with no image-generation dependency.
+Deadline: Humphrey closes 2026-07-26, so we ship a v1 linking what is already public and
+treat the rest as a prioritized backlog.
 
 ## Goals
 
-- One public, bilingual (EN default / ES) static page, deployable on GitHub Pages.
-- Reuse the academias.dev design system for brand coherence; push type, full-bleed blue,
-  and motion further.
-- Gather his open work (build + research) as scannable, linked cards.
+- One public, bilingual (EN default / ES) static site on GitHub Pages (`hesusg.github.io`).
+- Three facets (Teaching & Learning Design · Building · Research & Policy) + About/Contact,
+  each with 2-3 flagship items and a unifying thesis: *I design learning, build the systems
+  that scale it, and study the policy that should govern it.*
+- Show one identity multiplying another (the ID x dev x research bridge piece).
+- A mailing-list subscribe section delivering gated free downloads (lead magnets).
 - Credible, human, anti-slop copy. English primary (the committee reads English).
 
-## Non-goals (out of scope for v1)
+## Non-goals (v1)
 
-- No CMS, framework, or build step. Hand-authored HTML/CSS/JS.
-- No per-project generated illustrations (no Gemini pipeline). Typographic monograms +
-  1-2 public-domain duotone etchings only.
-- No blog, no YouTube/Instagram/Bluesky links (planned/unused — omit empty profiles).
-- The exact project copy and how to adapt scattered repo content is deferred to a second
-  grill-me round (see "Open: content inventory").
+- No CMS/framework/build step. Hand-authored HTML/CSS/JS.
+- No per-project generated illustrations (typographic monograms + 1-2 public-domain duotone
+  etchings only).
+- No backend: gated downloads are handled by an external ESP (MailerLite), not GitHub.
+- Per-project deep case-study pages are backlog, not v1 (except the KrediTec case PDF).
 
-## Decisions (locked in brainstorming)
+## Constraints (confidentiality — verified)
+
+- **BEDU is now nameable** (company closed). The B2B "Intro to AI / data-storytelling"
+  course can credit BEDU.
+- **EXCLUDE** the confidential code-review bot ("SDD Code Reviewer") found in
+  `nano-spud-infra` — never describe it.
+- The in-progress DeepLearning.AI **context-engineering** course: minimal mention or omit.
+- Strip any student PII before publishing EC0301 / grader / data-mining materials.
+
+## Decisions (locked)
 
 | Branch | Decision |
 |---|---|
-| Build base | **Fork academias.dev system** (copy `styles.css`/`main.js` tokens + components as base) |
-| Repo / URL | **`hesusg.github.io`** (GitHub Pages user site, clean root URL) |
-| Hero | **Cascading arc text**: `Builder,` / `educator,` / `policy architect.` (three blue tones), echoing the essays' builder→architect arc |
-| Nav | **Vertical side index** (fixed, `I · Work` … `IV · Contact`), scroll-spy highlights current section |
-| Project cards | **Sticky stack**: two-column cards (monogram/etch left, text+tags+links right) that pin and pass over each other on scroll |
-| Sections | I Work · II Research · III About · IV Contact |
-| Imagery | **Typographic monograms + 1-2 public-domain duotone etchings** (reuse academias duotone pipeline; no generation) |
-| Language | **EN default, ES mirror**, shared CSS, lang redirect + localStorage like academias |
-| Copy | academias anti-slop doctrine; English primary |
-| FIG indexing | Keep brand `FIG. I–IV` section markers; **drop per-card `PROJECT 0X` numbers** (flagged as redundant numeric scaffold by the impeccable hook) |
+| Build base | Fork academias.dev system (tokens + components), pushed extreme |
+| Repo / URL | `hesusg.github.io` (GitHub Pages user site) |
+| Structure | 3 facets mirroring the hero arc + About/Contact |
+| Hero | Cascading `Builder,` / `educator,` / `policy architect.` |
+| Nav | Vertical side index (I · II · III · IV), scroll-spy |
+| Project cards | Sticky stack, two-column cards |
+| Imagery | Typographic monograms + 1-2 public-domain duotone etchings (no generation) |
+| Language | EN default, ES mirror, shared CSS, lang redirect + localStorage |
+| Mailing list | **MailerLite** (free 1k, native lead-magnet delivery, GDPR double opt-in, JS embed) |
+| Lead magnets (v1) | ser-tutor (short) + "Mitos de IA" (minimal -> PDF). Governance Brief later (backlog) |
+| Case PDF | KrediTec "situacion-problema" rendered as a styled PDF (impeccable), part of the data-mining flagship (not gated) |
+| Quality gate | Run impeccable anti-slop + evaluate; **always accept and fix** what impeccable flags |
+| Scope | v1 ships public links + ready lead magnets; rest is backlog |
 
 ## Architecture / file structure
 
 ```
 hesusg.github.io/
-  index.html          # lang redirect (localStorage academia_lang -> /en/ or /es/) + <noscript> fallback
-  en/index.html       # English page (lang="en") — canonical/default
-  es/index.html       # Spanish mirror (lang="es")
+  index.html            # lang redirect (localStorage) + <noscript> fallback
+  en/index.html         # English page (canonical)
+  es/index.html         # Spanish mirror
   assets/
-    styles.css        # forked + extended academias tokens & components (shared, lang-agnostic)
-    main.js           # scroll-spy, reveal, sticky behavior, lang persistence (shared)
-    img/              # 1-2 public-domain duotone etchings (webp) + favicon/logo
-  CNAME               # (optional, later) for a custom domain
-  README.md           # short bilingual note: what this is, license
+    styles.css          # forked + extended academias tokens & components
+    main.js             # scroll-spy, reveal, sticky, lang persistence, MailerLite embed
+    img/                # 1-2 duotone etchings + favicon/logo
+  downloads/            # public artifacts safe to expose (e.g., KrediTec case PDF)
+  CNAME                 # (later) custom domain
+  README.md             # short bilingual note + license
   docs/superpowers/specs/2026-06-29-hesusg-portfolio-design.md
 ```
 
-EN and ES are full pages with identical structure and localized text; CSS/JS shared.
-
 ## Design system (forked from academias, pushed)
 
-**Color (OKLCH, canonical — no hex):**
-- `--bg: oklch(0.99 0.004 255)`; `--ink: oklch(0.20 0.03 264)`
-- `--blue: oklch(0.48 0.27 264)` (identity); `--ink-blue: oklch(0.32 0.17 264)`
-- `--muted: oklch(0.45 0.03 264)`; `--acc: oklch(0.93 0.21 112)` (citron, **only on blue**)
-- `--on-blue: oklch(0.99 0.004 255)`; `--line: oklch(0.90 0.012 264)`
-- Contrast: all text >= 4.5:1 (large >= 3:1).
+Color (OKLCH, canonical): `--bg 0.99 0.004 255`, `--ink 0.20 0.03 264`,
+`--blue 0.48 0.27 264` (identity), `--ink-blue 0.32 0.17 264`, `--muted 0.45 0.03 264`,
+`--acc 0.93 0.21 112` (citron, only on blue), `--on-blue 0.99 0.004 255`,
+`--line 0.90 0.012 264`. Type: Archivo (display 700/800), Bodoni Moda (wordmark/eyebrow),
+IBM Plex Mono (body/UI/nav). Doctrine: matte blue frame, subtle grain/vignette, no cards
+elsewhere / no shadows, radius 2px, no em/en dashes, citron never on white. "Pushed":
+larger hero clamp, tighter tracking, more full-bleed blue.
 
-**Type (3 families, mono as body voice):**
-- Display/headings: **Archivo** 700/800, tight tracking (`-0.02/-0.03em`).
-- Wordmark/eyebrow: **Bodoni Moda** 500/600, `0.14em` tracking.
-- Body + UI + nav: **IBM Plex Mono** 400/500/600.
-- "Pushed": larger hero clamp (up to ~7.5rem), tighter tracking on the cascade.
+## Content map (three facets)
 
-**Doctrine (keep):** matte electric-blue viewport frame, subtle grain + vignette, no cards
-elsewhere/no drop shadows (depth via tonal shifts + full-bleed blue), `border-radius: 2px`,
-no em/en dashes in copy (use `·`, `:`, `,`, period), citron never on white.
+**I · Teaching & Learning Design** (educator)
+- Flagship: **EC0301 "IA para Docentes"** — 22h course, 145-criterion certified rubric,
+  ABCD objectives, diagnostic/formative/summative instruments, manuals (`EC301-HG_1`).
+- Secondary flagship: **ITESM Data Mining** (`course-itesm-data-mining`, public) + the
+  **KrediTec case** (styled PDF; the "situacion-problema").
+- ID x dev bridge: **6-competency rubric system** (`diagnostico-lineas-accion`) +
+  **automated grader** (`diagnostico-lineas-accion-m1-grader`).
+- **DeepLearning.AI — RAG course** (public link).
+- **BEDU** — multi-year B2B + public "Intro to AI / data-storytelling" course (xlsx design).
+- Open: ai-for-teachers, InteligencIA-LATAM. Credential: Illinois MasterTrack (EPOL).
 
-## Components
+**II · Building** (builder)
+- Flagship: **nano-spud-infra** (public homelab) — Prometheus/Grafana, Tailscale+nftables
+  zero-trust (reused 6+), Ollama local LLM, Immich, n8n, **Digital Observatory** pipeline.
+  (review bot excluded.)
+- Bridge: the automated grader (Python/Jupyter feedback).
+- **academias.dev** (built static site, live).
 
-1. **Vertical index (`.vindex`)** — fixed left, `writing-mode: vertical-rl`, links to the
-   four sections; `.on`/scroll-spy state in blue. Hidden < 760px (replaced by a minimal top
-   row or hamburger to be decided in implementation).
-2. **Hero cascade** — eyebrow (Bodoni) + three stacked Archivo lines in `--ink` /
-   `--ink-blue` / `--blue`; on load they reveal in sequence (locomotive-style build).
-   Subtitle (<= 60ch) + credential meta line. Respects reduced-motion (renders complete).
-3. **Sticky-stack cards (`.stack > .card`)** — `position: sticky; top: ~90px`; two-column
-   grid (`.art` blue panel with monogram/etch + `.body` with FIG label, title, tag chips,
-   blurb, links). Cards pin and the next passes over. Stacks to one column < 760px.
-4. **Drench section (About)** — full-bleed `--blue` band, one large anchor statement with a
-   citron emphasis (e.g., "A model is a policy choice").
-5. **Contact rows (`.crow`)** — rule-separated `key / value` rows (Email, GitHub, LinkedIn,
-   X, AcademIA), hover `translateX(0.6rem)`. No form in v1 (mailto link).
-6. **Language switch** — top-right `EN · ES`, persists choice to `localStorage`.
+**III · Research & Policy** (policy architect)
+- **Thesis** (`tesis-hesusg-pedadogia`, live site). NOTE: verify country count
+  (essays say 17; one inventory said 7) before publishing the blurb.
+- **UNESCO TFC1** (`unesco-policy-planning-education-2026`, PDF deliverable).
+- **IFE 2026 paper** (`ife-2026-cell-feedback-paper`, Springer, in review) — also bridges
+  to the assessment/feedback ID work.
+- **China / INFOTEC seminar** on Confucianism (upcoming — label as such).
+- Comparative Brief + MX-AICFT (private; publish post-decision -> backlog + future magnet).
 
-## Interactions / animations (progressive enhancement, all gated by `prefers-reduced-motion`)
+**IV · About / Contact**
+- Arc bio + unifying thesis line.
+- Contact: hesusgc@gmail.com · github.com/HesusG · linkedin.com/in/hgcobos ·
+  x.com/HG_Cobos · academias.dev.
+- **Subscribe + free downloads** (MailerLite).
 
-- Hero cascade reveal on load (sequence the three lines).
-- Scroll-spy updates the vertical index active item (IntersectionObserver).
-- `[data-reveal]` fade/translate on scroll-in.
-- Sticky-stack via CSS `position: sticky` (no JS needed for the core effect).
-- Reduced-motion: no animation, full content visible, sticky degrades gracefully.
+## Lead magnets + mailing list (MailerLite)
 
-## Content mapping (sections -> cards)
+- GitHub Pages is static; gating needs an ESP. Embed a MailerLite form (JS snippet) in a
+  "Free downloads" section. On double opt-in, MailerLite's automation emails the download
+  link; the file lives in MailerLite (truly gated), not as a public GitHub URL.
+- v1 magnets: **ser-tutor (short)** (HTML + EPUB, ready) and **"Mitos de IA"** (render
+  `tripleten-ai-hesusg/minimal.html` to PDF). Governance Brief is a later magnet.
+- The page is freely readable; only the download requires signup (GDPR "freely given").
 
-- **I · Work:** ai-for-teachers · InteligencIA-LATAM · academias.dev
-- **II · Research:** thesis (BERTopic/embeddings NLP comparison of national AI-in-education
-  policy, 17 countries + EU + orgs) · Comparative Brief (Mexico vs EU/US/China) ·
-  MX-AICFT competency framework draft
-- **III · About:** the builder->educator->architect arc + teaching (Tec de Monterrey,
-  DeepLearning.AI, AcademIA, Laboratoria, IIEP-UNESCO)
-- **IV · Contact:** hesusgc@gmail.com · github.com/HesusG · linkedin.com/in/hgcobos ·
-  x.com/HG_Cobos · academias.dev
+## Case-study PDFs (impeccable)
 
-## Deployment
+- Render the KrediTec "situacion-problema" (`sp_datamining_rev1.docx`) into a styled PDF in
+  the portfolio's visual language. Run impeccable anti-slop + evaluate and **accept/fix all
+  findings**. This PDF sits in `downloads/` and is linked from the data-mining flagship.
 
-- GitHub Pages from the `main` branch root of `hesusg.github.io` (public).
-- `index.html` redirects to `/en/` or `/es/`; `/en/` is canonical with hreflang to `/es/`.
-- Optional custom domain later via `CNAME`.
+## v1 vs backlog
 
-## Accessibility
+**v1 (ship by 2026-07-26):** the static site (3 facets), linking already-public items
+(thesis live, nano-spud, DeepLearning.AI RAG, academias.dev, InteligencIA-LATAM repo,
+UNESCO TFC1, IFE preprint, course-itesm-data-mining) + KrediTec case PDF + MailerLite form
++ ready magnets (ser-tutor short, Mitos de IA).
 
-- Semantic landmarks (nav/main/section/footer), skip link, `:focus-visible` rings.
-- `lang` attributes per page; `hreflang` cross-links.
-- Reduced-motion path for every animation; content readable without JS.
+**Backlog (post-deadline):** publish EC0301 (student data stripped) as the ID flagship;
+publish Comparative Brief + MX-AICFT; complete data-mining modules 3-9; enable GitHub Pages
+for ai-for-teachers / inteligencia-latam; per-project case-study pages; custom domain.
 
-## Anti-slop copy doctrine
+## Accessibility, anti-slop, verification
 
-Apply the academias `anti-slop-checklist.md`: banned words/openers, no forced triads, no
-"not just X but Y", varied rhythm, real numbers only, no em/en dashes. Spanish copy run
-through `humanizar-es-mx`. No fabricated metrics.
+- Semantic landmarks, skip link, focus-visible, lang/hreflang, reduced-motion path for
+  every animation, content readable without JS.
+- Anti-slop: academias `anti-slop-checklist.md`; Spanish via `humanizar-es-mx`; no
+  fabricated metrics; impeccable findings always accepted.
+- Verify: links resolve (incl. live sites/PDFs), EN page has no stray Spanish, no corrupt
+  characters, MailerLite form submits + delivers a test download, Lighthouse a11y pass.
 
-## Open: content inventory (next grill-me round)
+## Open items to confirm during implementation
 
-The user's material is scattered across many repos and documents. Before implementation we
-run a second grill-me to decide, per card: exact title, one-line blurb, tag chips, which
-link(s) to expose (live site / repo / PDF), and how to adapt/host scattered assets (e.g.,
-where the thesis, the Comparative Brief, and MX-AICFT PDFs live and which are public). This
-fills every `[link]`/blurb placeholder before the page is built.
+- Thesis country count (17 vs 7).
+- Whether EC0301/grader repos are already public or need a stripped public mirror.
+- Exact MailerLite account + form id (user creates the account; we embed the snippet).
