@@ -13,25 +13,41 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800&family=Bodoni+Moda:opsz,wght@6..96,500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/styles.css">
+<script>if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('preanim');</script>
 </head>
 <body>
 <a class="skip" href="#main">Saltar al contenido</a>
 <div class="frame"></div><div class="grain"></div>
 <div class="lang"><a href="../en/" data-lang-set="en">EN</a> · <b>ES</b></div>
+<header class="topnav">
+  <a class="tn-brand" href="#top">Hesus Garcia Cobos</a>
+  <div class="tn-right">
+    <span class="tn-lang"><a href="../en/" data-lang-set="en">EN</a> · <b>ES</b></span>
+    <details class="tn-menu">
+      <summary>Menú</summary>
+      <nav aria-label="Secciones">
+        <a href="#work"><span class="n">I</span><span>Enseñanza</span></a>
+        <a href="#building"><span class="n">II</span><span>Construcción</span></a>
+        <a href="#research"><span class="n">III</span><span>Investigación</span></a>
+        <a href="#contact"><span class="n">IV</span><span>Contacto</span></a>
+      </nav>
+    </details>
+  </div>
+</header>
 <nav class="vindex" aria-label="Secciones">
-  <a href="#work">I · Enseñanza</a>
-  <a href="#building">II · Construcción</a>
-  <a href="#research">III · Investigación</a>
-  <a href="#contact">IV · Contacto</a>
+  <a href="#work"><span class="n">I</span><span>Enseñanza</span></a>
+  <a href="#building"><span class="n">II</span><span>Construcción</span></a>
+  <a href="#research"><span class="n">III</span><span>Investigación</span></a>
+  <a href="#contact"><span class="n">IV</span><span>Contacto</span></a>
 </nav>
 
 <main id="main" class="wrap">
   <section class="hero" id="top">
     <div class="brandline eyebrow">HESUS GARCIA COBOS · DISEÑO DE APRENDIZAJE · GOBERNANZA DE IA</div>
     <div class="cascade">
-      <span class="c1">Constructor,</span>
-      <span class="c2">docente,</span>
-      <span class="c3">arquitecto de políticas.</span>
+      <span class="line"><span class="c1">Constructor,</span></span>
+      <span class="line"><span class="c2">docente,</span></span>
+      <span class="line"><span class="c3">arquitecto de políticas.</span></span>
     </div>
     <p class="herosub">Diseño cómo se aprende, construyo los sistemas que lo escalan, y estudio las políticas que deberían gobernarlo. Mi campo es la IA en la educación, y donde se cruza con la gobernanza.</p>
     <div class="herometa">DeepLearning.AI · AcademIA · BEDU · Tec de Monterrey · IIEP-UNESCO</div>
@@ -41,31 +57,31 @@
     <div class="fig">FIG. I · ENSEÑANZA Y DISEÑO DE APRENDIZAJE</div>
     <h2>Diseñar cómo aprende la gente</h2>
     <div class="stack">
-      <article class="card"><div class="art"><div class="mono">IA·D</div><div class="acc">EC0301 · CERTIFICADO</div></div>
+      <article class="card"><div class="art"><span class="etch" style="background-image:url(../assets/img/cards/teaching.webp)"></span><div class="mono">IA·D</div><div class="acc">EC0301 · CERTIFICADO</div></div>
         <div class="body"><div class="ttl">IA para Docentes</div>
         <div class="tags"><span>Curso 22h</span><span>Rúbrica de 145 criterios</span><span>Objetivos ABCD</span></div>
         <p class="blurb">Un curso completo de formación docente, diseñado de principio a fin: objetivos en diseño inverso, instrumentos diagnóstico, formativo y sumativo, y manuales de participante e instructor.</p>
         </div></article>
 
-      <article class="card"><div class="art"><div class="mono">DM</div></div>
+      <article class="card"><div class="art"><span class="etch" style="background-image:url(../assets/img/cards/datamining.webp)"></span><div class="mono">DM</div></div>
         <div class="body"><div class="ttl">Minería de Datos (ITESM)</div>
         <div class="tags"><span>Currículo de ML</span><span>Caso fintech real</span><span>Python</span></div>
         <p class="blurb">Un curso de minería de datos de posgrado con notebooks prácticos y el caso de riesgo crediticio KrediTec: los estudiantes defienden sus modelos por equidad, eficiencia y correctitud, no solo por exactitud.</p>
         <div class="links"><a href="https://github.com/HesusG/course-itesm-data-mining">Repo</a><a href="../downloads/kreditec-case.pdf">PDF del caso</a></div></div></article>
 
-      <article class="card"><div class="art"><div class="mono">R+G</div></div>
+      <article class="card"><div class="art"><span class="etch" style="background-image:url(../assets/img/cards/assessment.webp)"></span><div class="mono">R+G</div></div>
         <div class="body"><div class="ttl">Sistemas de evaluación</div>
         <div class="tags"><span>Rúbricas por competencia</span><span>Grader automático</span><span>ID x dev</span></div>
         <p class="blurb">Rúbricas ponderadas por competencia y un motor de feedback en Python que califica notebooks y devuelve retroalimentación de crecimiento. Donde el diseño instruccional se cruza con la ingeniería.</p>
         <div class="links"><a href="https://github.com/HesusG/diagnostico-lineas-accion">Repo</a></div></div></article>
 
-      <article class="card"><div class="art"><div class="mono">RAG</div></div>
+      <article class="card"><div class="art"><span class="etch" style="background-image:url(../assets/img/cards/rag.webp)"></span><div class="mono">RAG</div></div>
         <div class="body"><div class="ttl">DeepLearning.AI: RAG</div>
         <div class="tags"><span>Autor del curso</span><span>LLM</span></div>
         <p class="blurb">Coautor del curso de Retrieval Augmented Generation para DeepLearning.AI.</p>
         <div class="links"><a href="https://www.deeplearning.ai/courses/retrieval-augmented-generation">Curso</a></div></div></article>
 
-      <article class="card"><div class="art"><div class="mono">A·f·T</div></div>
+      <article class="card"><div class="art"><span class="etch" style="background-image:url(../assets/img/cards/openedu.webp)"></span><div class="mono">A·f·T</div></div>
         <div class="body"><div class="ttl">ai-for-teachers · InteligencIA-LATAM</div>
         <div class="tags"><span>Alineado a UNESCO</span><span>EN / ES</span><span>Abierto / CC</span></div>
         <p class="blurb">Dos recursos abiertos y bilingües: un curso gratuito de alfabetización en IA para docentes públicos, y un marco breve para usar IA en el aula de educación superior.</p>
@@ -77,19 +93,19 @@
     <div class="fig">FIG. II · CONSTRUCCIÓN</div>
     <h2>Los sistemas detrás del aprendizaje</h2>
     <div class="stack">
-      <article class="card"><div class="art"><div class="mono">n·s</div><div class="acc">HOMELAB</div></div>
+      <article class="card"><div class="art"><span class="etch" style="background-image:url(../assets/img/cards/homelab.webp)"></span><div class="mono">n·s</div><div class="acc">HOMELAB</div></div>
         <div class="body"><div class="ttl">Infraestructura nano-spud</div>
         <div class="tags"><span>Prometheus / Grafana</span><span>Tailscale + nftables</span><span>LLM local (Ollama)</span></div>
         <p class="blurb">Un homelab de grado producción: observabilidad en cada nodo, un patrón de firewall zero-trust reutilizado, inferencia LLM local bajo demanda, y un stack propio de medios y automatización.</p>
         </div></article>
 
-      <article class="card"><div class="art"><div class="mono">DO</div></div>
+      <article class="card"><div class="art"><span class="etch" style="background-image:url(../assets/img/cards/observatory.webp)"></span><div class="mono">DO</div></div>
         <div class="body"><div class="ttl">Digital Observatory</div>
         <div class="tags"><span>Pipeline RAG</span><span>n8n</span><span>Agentes</span></div>
         <p class="blurb">Un pipeline de inteligencia: recolección de feeds, detección de cambios, orquestación, scoring con LLM local, y una base de conocimiento que se vuelve borradores.</p>
         <div class="links"><a href="https://github.com/HesusG/digital-observatory">Repo</a></div></div></article>
 
-      <article class="card"><div class="art"><div class="mono">a·dev</div></div>
+      <article class="card"><div class="art"><span class="etch" style="background-image:url(../assets/img/cards/academias.webp)"></span><div class="mono">a·dev</div></div>
         <div class="body"><div class="ttl">academias.dev</div>
         <div class="tags"><span>Sitio estático</span><span>EN / ES</span></div>
         <p class="blurb">El sitio de la consultoría AcademIA, hecho a mano en el mismo sistema technical-plate que este portafolio extiende.</p>
@@ -101,19 +117,19 @@
     <div class="fig">FIG. III · INVESTIGACIÓN Y POLÍTICA</div>
     <h2>De la práctica a la política</h2>
     <div class="stack">
-      <article class="card"><div class="art"><div class="mono">NLP</div><div class="acc">EN VIVO</div></div>
+      <article class="card"><div class="art"><span class="etch" style="background-image:url(../assets/img/cards/policy.webp)"></span><div class="mono">NLP</div><div class="acc">EN VIVO</div></div>
         <div class="body"><div class="ttl">Políticas de IA en educación, comparadas</div>
         <div class="tags"><span>BERTopic</span><span>Embeddings</span><span>Tesis</span></div>
         <p class="blurb">Una tesis de pedagogía que compara políticas nacionales de IA en educación con un pipeline de PLN, con una mirada longitudinal a China.</p>
         <div class="links"><a href="https://hesusg.github.io/tesis-hesusg-pedadogia/">Sitio</a><a href="https://github.com/HesusG/tesis-hesusg-pedadogia">Repo</a></div></div></article>
 
-      <article class="card"><div class="art"><div class="mono">UN</div></div>
+      <article class="card"><div class="art"><span class="etch" style="background-image:url(../assets/img/cards/unesco.webp)"></span><div class="mono">UN</div></div>
         <div class="body"><div class="ttl">UNESCO IIEP: planeación de políticas</div>
         <div class="tags"><span>México</span><span>Brief de política</span></div>
         <p class="blurb">Un entregable formal del IIEP sobre planear la integración de IA en la educación para México.</p>
         </div></article>
 
-      <article class="card"><div class="art"><div class="mono">IFE</div></div>
+      <article class="card"><div class="art"><span class="etch" style="background-image:url(../assets/img/cards/feedback.webp)"></span><div class="mono">IFE</div></div>
         <div class="body"><div class="ttl">Feedback asistido por IA (IFE 2026)</div>
         <div class="tags"><span>Springer LNET</span><span>En revisión</span></div>
         <p class="blurb">Un artículo de conferencia sobre feedback con IA, guiado por rúbricas y a nivel de celda, para tareas de programación. Enviado a IFE 2026, en revisión.</p>
@@ -150,6 +166,7 @@
   </section>
 </div>
 
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
 <script src="../assets/main.js" defer></script>
 </body>
 </html>
