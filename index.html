@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hesus Garcia Cobos</title>
+<script>
+(function(){
+  var saved; try { saved = localStorage.getItem('hgc_lang'); } catch(e){}
+  var lang = saved || ((navigator.language||'en').toLowerCase().indexOf('es')===0 ? 'es' : 'en');
+  location.replace(lang === 'es' ? '/es/' : '/en/');
+})();
+</script>
+<meta http-equiv="refresh" content="0; url=/en/">
+</head>
+<body><noscript><p>Continue to <a href="/en/">English</a> or <a href="/es/">Espanol</a>.</p></noscript></body>
+</html>
