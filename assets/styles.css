@@ -7,7 +7,7 @@
   --acc:oklch(0.93 0.21 112); --on-blue:oklch(0.99 0.004 255);
   --line:oklch(0.90 0.012 264);
   --fw:clamp(7px,0.9vw,12px); --maxw:1180px;
-  --rail:clamp(168px,15vw,240px);
+  --rail:clamp(52px,6vw,78px);
   --ease-out:cubic-bezier(0.16,1,0.3,1);
   --progress:0;
 }
@@ -37,20 +37,13 @@ h2{font-size:clamp(2rem,5vw,3.6rem);margin-bottom:.4rem}
   font-size:13px;color:var(--muted)}
 .fig{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:18px}
 
-/* Vertical index nav (upright stacked) + scroll progress rail */
-.vindex{position:fixed;left:calc(var(--fw) + 16px);top:0;height:100vh;display:flex;
-  flex-direction:column;justify-content:center;gap:4px;z-index:40;padding-left:16px;
-  border-left:1.5px solid var(--line)}
-.vindex::before{content:"";position:absolute;left:-1.5px;top:0;width:1.5px;height:100%;
-  background:var(--blue);transform:scaleY(var(--progress));transform-origin:top;
-  transition:transform .15s linear}
-.vindex a{display:grid;grid-template-columns:1.8em 1fr;gap:.55em;align-items:baseline;
-  color:var(--muted);text-decoration:none;padding:9px 0;
-  font-size:13px;letter-spacing:.13em;text-transform:uppercase;transition:color .2s}
-.vindex a .n{font-family:"Bodoni Moda",serif;font-size:15px;letter-spacing:0;color:var(--ink-blue)}
-.vindex a:hover,.vindex a.on{color:var(--blue)}
-.vindex a.on{font-weight:600}
-.vindex a.on .n{color:var(--blue)}
+/* Vertical index nav — rotated rail (matches the approved draft), always legible via blend */
+.vindex{position:fixed;left:0;top:50%;transform:translateY(-50%);z-index:45;
+  width:var(--rail);color:#fff;mix-blend-mode:difference}
+.vindex a{writing-mode:vertical-rl;display:block;width:max-content;margin:16px auto;
+  color:#fff;text-decoration:none;font-size:13px;letter-spacing:.26em;
+  text-transform:uppercase;font-weight:500;opacity:.6;transition:opacity .2s}
+.vindex a:hover,.vindex a.on{opacity:1;font-weight:700}
 
 /* Mobile top nav (shown <=900px) */
 .topnav{display:none}
