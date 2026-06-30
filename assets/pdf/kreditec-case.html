@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>KrediTec — Credit-Risk Case Study</title>
+<style>
+  @page {
+    size: A4;
+    margin: 20mm 18mm 18mm 18mm;
+    @bottom-center { content: "KrediTec case study · Hesus Garcia Cobos · academias.dev"; font-family: "IBM Plex Mono", monospace; font-size: 8pt; color: #5a6178; }
+    @bottom-right { content: counter(page); font-family: "IBM Plex Mono", monospace; font-size: 8pt; color: #1f43d6; }
+  }
+  :root{ --blue:#1f43d6; --ink:#16182a; --muted:#5a6178; --acc:#7c8a00; --line:#d7dbe8; }
+  *{ box-sizing:border-box; }
+  body{ font-family:"IBM Plex Mono", ui-monospace, monospace; color:var(--ink); font-size:9.6pt; line-height:1.55; margin:0; }
+  .cover{ border:2.5pt solid var(--blue); padding:16mm 12mm; margin-bottom:9mm; }
+  .eyebrow{ font-family:"Bodoni Moda", Georgia, serif; letter-spacing:.18em; font-size:9pt; color:var(--muted); text-transform:uppercase; }
+  h1{ font-family:"Archivo", Helvetica, sans-serif; font-weight:800; font-size:30pt; line-height:1; letter-spacing:-.01em; margin:.3em 0 .2em; }
+  .sub{ font-size:11pt; max-width:46em; }
+  .meta{ margin-top:8mm; font-size:8.5pt; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); }
+  h2{ font-family:"Archivo", Helvetica, sans-serif; font-weight:800; font-size:15pt; letter-spacing:-.01em; color:var(--ink); margin:7mm 0 2mm; padding-top:3mm; border-top:1.5pt solid var(--blue); }
+  .fig{ font-size:8pt; letter-spacing:.16em; text-transform:uppercase; color:var(--blue); margin-bottom:1mm; }
+  p{ margin:0 0 2.6mm; }
+  table{ width:100%; border-collapse:collapse; margin:3mm 0; font-size:8.6pt; }
+  th,td{ text-align:left; padding:2mm 3mm; border-bottom:1pt solid var(--line); vertical-align:top; }
+  th{ color:var(--blue); text-transform:uppercase; letter-spacing:.08em; font-size:7.6pt; border-bottom:1.5pt solid var(--blue); }
+  .decide{ background:#f3f5fc; border-left:3pt solid var(--blue); padding:3mm 4mm; margin:3mm 0; }
+  .decide b{ color:var(--blue); }
+  .refs{ font-size:7.8pt; color:var(--muted); line-height:1.45; }
+  .refs p{ margin:0 0 1.6mm; padding-left:4mm; text-indent:-4mm; }
+  em{ font-style:normal; background:#eef0d8; color:#3a4400; padding:0 .2em; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="eyebrow">Case study · Data Mining (ITESM) · Hesus Garcia Cobos</div>
+  <h1>KrediTec</h1>
+  <p class="sub">A credit-risk classification case for a Mexican fintech: build a proof-of-concept that decides who gets a loan, and defend it on fairness, efficiency and correctness, not accuracy alone.</p>
+  <div class="meta">Situacion-problema · Binary classification · Fairness by design</div>
+</div>
+
+<h2>The company</h2>
+<p>KrediTec operates where financial technology meets credit access in Mexico, a country where 42% of the population lives below the national poverty line (Orozco Ramos, 2022). Founded in 2020, it has raised $40M in venture funding, including a recent $30M Series B, positioning itself as a digital lender for traditionally underbanked people. Its premise is simple: approve credit in under five minutes, anywhere.</p>
+<p>The company runs three products across two credit categories.</p>
+
+<table>
+  <thead><tr><th>Category</th><th>Product</th><th>Loan type</th><th>Term</th><th>Amount (MXN)</th></tr></thead>
+  <tbody>
+    <tr><td>Cash loans</td><td>KrediTecCash</td><td>Single payment</td><td>30 days</td><td>$1,000 - $10,000</td></tr>
+    <tr><td>Cash loans</td><td>KrediTecCash+</td><td>Installments</td><td>Up to 6 biweekly</td><td>$2,000 - $16,000</td></tr>
+    <tr><td>Purchase finance</td><td>KrediTecPay</td><td>Single payment</td><td>90 days</td><td>Up to $16,000</td></tr>
+  </tbody>
+</table>
+
+<h2>The problem</h2>
+<p>Mexican fintech has grown 46% since 2019 (Escamilla-Salazar et al., 2023). KrediTec has kept scoring credit the old way, leaning on traditional bureaus (FICO, Circulo de Credito) while competitors adopt machine learning that reads alternative data: transaction histories, behavior, patterns that a bureau score never sees. That gap costs KrediTec both precision and speed, and it widens every quarter.</p>
+<p>Internally, KrediTec has about 300 employees and a Business Intelligence team of seven analysts led by a Data Head. The team wants a proprietary, ML-based credit-risk index, but the company lacks the pipeline: no training environment, no deployment framework, and not enough ML talent. The new Series B funds exactly this, and a second Data Head is being hired to lead it.</p>
+
+<h2>The proof-of-concept decision</h2>
+<p>As a first step, the team builds a proof-of-concept from a relational-database view covering a fraction of customers, to implement a binary classification model that produces the risk index. The Head of Data has to choose, with real consequences:</p>
+<div class="decide">
+  <p><b>Model.</b> Logistic regression is interpretable; neural networks recognize richer patterns; decision trees sit in between. Each changes how the system is maintained and explained.</p>
+  <p><b>Metrics.</b> Accuracy and AUC-ROC compare cleanly against current providers, but lending makes false positives and false negatives cost different amounts, so the metric has to reflect that.</p>
+  <p><b>Deployment.</b> The existing API gateway, PostgreSQL, Kafka streams and Kubernetes cluster favor a microservice that reuses current monitoring, but model serving still needs careful load design.</p>
+  <p><b>Privacy and fairness.</b> The architecture touches sensitive financial data at many points. An in-house model needs security and compliance controls, and an answer to the real question: how does it ensure fair lending and prevent unintended bias?</p>
+</div>
+<p>For the proof-of-concept, the team programs the core model in Jupyter notebooks. Architecture, security and fairness controls are taken to management with evidence. The point of the exercise is the one students miss most: a credit model is not a neutral calculation. It decides who is trusted with money, and that makes it a policy choice.</p>
+
+<h2>References</h2>
+<div class="refs">
+<p>Arner, D. W., Buckley, R. P., Zetzsche, D. A., &amp; Veidt, R. (2020). Sustainability, FinTech and financial inclusion. European Business Organization Law Review, 21(1). https://doi.org/10.1007/s40804-020-00183-y</p>
+<p>Diaz-Pena, L. C. (2021). FinTech's business model in Mexico, a preliminary analysis. REMEF, 16, 1-16. https://doi.org/10.21919/remef.v16i0.590</p>
+<p>Escamilla-Salazar, Z., Bada-Carbajal, L. M., &amp; Hernandez-Botello, A. (2023). Fintech in the entrepreneurial ecosystem: SMEs in the State of Mexico. 4th SAIIEOM Conference, 79-108.</p>
+<p>Fair Isaac Corporation. (n.d.). How are FICO Scores Calculated? myFICO. https://www.myfico.com/credit-education/whats-in-your-credit-score</p>
+<p>Orozco Ramos, A. (2022). The microcredit mousetrap: A long way from fighting poverty in Mexico. Cultural Dynamics, 34(3), 213-221. https://doi.org/10.1177/09213740221120304</p>
+<p>Rivera Vargas, M. I., &amp; de Leon Arias, A. (2022). The entrepreneurial ecosystem of Guadalajara, Jalisco, Mexico. Journal of Technology Management &amp; Innovation, 17(4), 37-50.</p>
+</div>
+
+</body>
+</html>
