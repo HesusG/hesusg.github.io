@@ -1,2 +1,5 @@
 .superpowers/
 .DS_Store
+# Lead magnets are gated (uploaded to MailerLite), never served publicly
+assets/lead-magnets/*.pdf
+assets/lead-magnets/*.epub
